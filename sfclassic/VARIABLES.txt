@@ -1,0 +1,321 @@
+SourceForts 1.9.6 Custom Console Variables
+==========================================
+
+This file contains a list of custom console commands and variables added to SourceForts.
+Since many of those were never oficially documented, the meaning of some of them might be lost in time or misunderstood.
+
+
+New Variables, Added in SourceForts Classic 1.0
+-----------------------------------------------
+
+Most of these were added to re-enable features that were cut or are disabled by default in SourceForts 1.9.6.
+These are meant only to be used for fun purposes and shouldn't ever be enabled in public servers or in league matches!
+
+* sf_soldier_combineball
+  * Default: 0
+  * [Fun] Allow Soldiers to spawn with AR2 alt-fire (combine balls) ammo (0-3). This shouldn't ever be enabled in public or competitive matches! Default: 0
+
+* sf_scout_smoke_grenade
+  * Default: 0
+  * [Experimental] When a Scout player spawn, it spawn with this amount (0-3) grenades. Default: 0
+
+* sf_freezestatus_extended
+  * Default: 0
+  * Displays the SteamID64 of the last block frozer/unfrozer when inspecting a block with the build gun
+
+* sv_curl_redhat_linux_compatible
+  * Default: 1
+  * [Server Side Only] Use local `cacert.pem` file.
+    This is required by RedHat-based Linux distros (CentOS, Amazon, etc.).
+    You should disable this if you're not using those distros.
+    Enable this if you're getting CURLE_SSL_CACERT_BADFILE curl errors on logs.
+    This variable has no effect on Windows.
+
+Console Commands
+----------------
+
+* togglephase
+  * toggles between Build Phase and Combat Phase
+
+* showbanlist
+  * Show list of users globally banned from all SourceForts servers
+
+* addtime
+  * adds extra time to the current phase (in seconds)
+
+* map_restart (time) (scores *optional*)
+  * Restarts round in (time) seconds, removes all blocks and resets all scores
+  * (scores) is optional and, if is set to one, it keeps the current scores
+
+* league_flipteams
+  * Flips the team
+
+* league_flipscores
+  * Flips the teams' scores
+
+* league_flip
+  * Flips the team and their scores
+
+* changeteam
+  * Changes team between Red/Blue/Spectator
+
+* changeto
+  * changeto <team#> <class#>: Changes team and class
+
+* dropflag
+  * Drops the flag
+
+* stopsoundscape
+  * Stops all soundscape processing and fades current looping sounds
+  * Remarks: Used to fix an issue with looping sounds in the past
+
+
+Existing Variables that have updated behavior
+---------------------------------------------
+
+* sf_grenade_throw_force_multiplier
+  * Default: 600
+  * The force multiplier for grenade throws
+  * Remarks: It was unintentionally disabled on SourceForts 1.9.4.1
+
+
+Everything Else
+---------------
+
+* sf_forcebalance
+  * Default: 1
+  * Force players to only be able to join the losing or smaller team.
+
+* sf_forceteams
+  * Default: 0
+  * Force players to a team.
+
+* sf_build_long_length
+  * Default: 600
+  * Default length of first build time (in seconds).
+
+* sf_build_short_length
+  * Default: 240
+  * Default length of all build times appart from the first (in seconds).
+
+* sf_combat_length
+  * Default: 600
+  * Default length of combat.
+
+* sf_roundlimit
+  * Default: 2
+  * Number of paired combat & fight rounds per map.
+
+* sf_scorelimit
+  * Default: 1000
+  * Maximum team score allowed before forcing a map change.
+
+* sf_allowspectators
+  * Default: 1
+  * Allows players to spectate a match.
+
+* sf_damage_crossbow
+  * Default: 100
+  * Sets the damage of the crossbow bolts
+
+* sf_repair_increment
+  * Default: 25
+  * Amount the target block is healed every `sf_repair_delay` seconds
+
+* sf_repair_delay
+  * Default: 0.2
+  * Delay (in seconds) between each healing application
+
+* sf_repair_distance
+  * Default: 96
+  * Maximum distance to allow target block healing
+
+* sf_dev_phygun_grenade
+  * Default: 0
+  * This enables a developer to test physgun grenade throwing without skill: simply hold reload and press left mouse button.
+  * Requires `sv_cheats` enabled
+
+* sf_freeze_distance_build
+  * Default: 600
+  * Freezing distance in build phase
+
+* sf_freeze_starting_distance_combat
+  * Default: 128
+  * Starting freeze distance in combat phase
+
+* sf_freeze_continue_distance_combat
+  * Default: 16
+  * Allowed continued freezing distance in combat phase
+
+* sf_freeze_continue_player_move_distance_combat
+  * Default: 16
+  * Distance the player is allowed to move while freezing a block
+
+* sf_combat_unfreeze_friendly
+  * Default: 4
+  * Necessary time to unfreeze a friendly block on combat phase
+
+* sf_combat_freeze_friendly
+  * Default: 6
+  * Necessary time to freeze a block on combat phase
+
+* sf_combat_unfreeze_enemy
+  * Default: 12
+  * Necessary time to unfreeze an enemy block on combat phase
+
+* sf_damage_rpg
+  * Default: 125
+  * Set the damage of the rocket explosion.
+
+* sf_reload_rpg
+  * Default: 2
+  * Set the delay for the next rocket launching.
+
+* sf_block_health
+  * Default: 4000
+  * Block Health
+  * Requires `sv_cheats` enabled
+
+* sf_block_unfreeze_health
+  * Default: 1250
+  * Real purpose unknown
+  * Requires `sv_cheats` enabled
+  * Remarks: The math behind this is odd. Better to leave this as is.
+
+* sf_block_damage_multiplier
+  * Default: 3.75
+  * Real purpose unknown
+  * Requires `sv_cheats` enabled
+  * Remarks: The math behind this is odd. Better to leave this as is. Setting it to 1.0 will prevent block damage.
+
+* sf_block_health_dynamic
+  * Default: 0
+  * ?
+
+* sf_block_health_dist
+  * Default: 80
+  * ?
+
+* sf_block_health_dist_min
+  * Default: 0.4
+  * ?
+
+* sf_team_blocklimit
+  * Default: 50
+  * Limit of blocks per team
+
+* sf_flag_model
+  * Default: "models/Roller_Spikes.mdl"
+  * Flag Model
+
+* sf_flag_pickupdelay
+  * Default: 1.3
+  * Delay after the flag is dropped that a player can interact with it again.
+
+* sf_flag_x
+  * Default: 0
+  * Offset position for the flag when it's on the player's base (X Axis)
+
+* sf_flag_y
+  * Default: 0
+  * Offset position for the flag when it's on the player's base (Y Axis)
+
+* sf_flag_z
+  * Default: 100
+  * Offset position for the flag when it's on the player's base (Z Axis)
+
+* sf_flag_returntime
+  * Default: 30
+  * Flag time on ground until it is returned to the base
+
+* sf_flag_drop_distance
+  * Default: 50
+  * Distance from the player when they drop the flag
+
+* mp_sfbanlist
+  * Default: 1
+  * Server Side Only - Enables the use of global ban list
+
+* sf_deny_respawn
+  * Default: 0
+  * Don't allow players to respawn
+
+* sf_team_autoassign
+  * Default: 0
+  * Auto assign teams when a player joins the server
+
+* mp_forcerespawntime
+  * Default: 5
+  * Seconds to force the player respawn
+
+* Classes Convar
+  * sf_health_scout
+    * Default: 100
+  * sf_health_heavysoldier
+    * Default: 100
+  * sf_health_builder
+    * Default: 80
+  * sf_health_rocketeer
+    * Default: 100
+  * sf_health_sniper
+    * Default: 75
+
+  * sf_armor_scout
+    * Default: 15
+  * sf_armor_heavysoldier
+    * Default: 75
+  * sf_armor_builder
+    * Default: 20
+  * sf_armor_rocketeer
+    * Default: 40
+  * sf_armor_sniper
+    * Default: 0
+
+* Class Limits
+  * sf_player_limits_enabled
+    * Default: 1
+  * sf_player_limits_scout_percentage
+    * Default: 100
+  * sf_player_limits_soldier_percentage
+    * Default: 66
+  * sf_player_limits_engineer_percentage
+    * Default: 75
+  * sf_player_limits_rocketeer_percentage
+    * Default: 60
+  * sf_player_limits_sniper_percentage
+    * Default: 25
+
+* AR2 damage falloff
+  * sf_ar2_range1_distance
+    * Default: 1000
+    * Medium range, where damage will be multiplied by a factor of `sf_ar2_range1_damage`.
+  * sf_ar2_range1_damage
+    * Default: 0.8
+    * Factor to multiply damage between `sf_ar2_range1_distance` and `sf_ar2_range2_distance` (medium range).
+  * sf_ar2_range2_distance
+    * Default: 2000
+    * Long range distance. AR2 shots beyond this distance will be multiplied by `sf_ar2_range2_damage`.
+  * sf_ar2_range2_damage
+    * Default: 0.6
+    * Factor to multiply damage by when it hits beyond `sf_ar2_range2_damage` range (long range).
+
+* hud_score_saytext_time
+  * Default: 12
+  * Amount of time (in seconds) the score messages will be on screen
+
+* cl_showclasspanel
+  * Default: 0
+  * Sets the state of team panel <state>
+
+* cl_showteampanel
+  * Default: 0
+  * Sets the state of team panel <state>
+
+* cl_help
+  * Default: 1
+  * Allows the display of help messages
+  * Remarks: Possibly not used. Intended for flag position display.
+
+* stopsoundscape
+  * Stops all soundscape processing and fades current looping sounds
+  * Remarks: Used to fix an issue with looping sounds in the past

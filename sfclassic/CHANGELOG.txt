@@ -1,0 +1,410 @@
+--------------------------------------------------------
+SourceForts Classic - CHANGELOG
+--------------------------------------------------------
+
+----------------------------
+Release Candidate 7 Changes
+----------------------------
+- Fixed infinite sprint bug
+- Added custom crosshairs
+- Added an experimental fix for `block_frozen` and `block_unfrozen` userid always returning 0
+- Minor fixes for server creation dialog information
+- Reverted cl_detailfade and cl_detaildist changes
+- Added missing user_default.scr
+- Maps and assets updates: (Thanks arenaceous!)
+  o Added tallgrass assets
+  o Added sf_metalurgy
+  o Added sf_tread
+  o Updated sf_fronts
+  o Updated sf_sphinx
+  o Updated sf_tactical
+    v Added experimental new teamwall/doors
+  o Updated sf_valley
+
+----------------------------
+Release Candidate 6 Changes
+----------------------------
+- Removed the hard-coded restriction of phase lengths being 120 seconds minimum
+- Added a warning if the phase length variable is set to anything below 120 seconds
+- Reverted the particles hard edges fixes, since they didn't work as expected.
+- Added a check so the game won't drain stamina during the build phase. This *might* fix the infinite stamina bug.
+- cl_detailfade now defaults to 5000
+- cl_detaildist now defaults to 7500
+- Improved pure_server_full.txt whitelist to not be overrestrictive and to allow simple mods like crosshair mods or sound mods. (Thanks Melectrome!)
+- Updated sf_skywalk (Thanks arenaceous!)
+  o Removed center spawner
+- Updated sf_tactical (Thanks arenaceous!)
+  o Overall brightness lowered
+- Added sf_fronts (Thanks arenaceous!)
+  o Completely redone
+  o No tripping hazards anymore! (most small surfaces are now ramps for jumping off of)
+  o Middle lowered
+  o Side ledges extend into bases more
+
+----------------------------
+Release Candidate 5 Changes
+----------------------------
+- Added a workaround for ramp jittery / Client stuck on object issue
+- Fixed weapon viewmodel jitter
+- Added experimental func_teamwall, using Haven Source SDK Source Code as base
+- Updated dedicated GameServerConfig.vdf to match listen server configuration file (Thanks Melectrome!)
+- Added a hacky workaround to valve.rc that fixes saved sprays (Thanks Melectrome!)
+- Updated maplist.txt and randomized the map order (Thanks arenaceous!)
+- Added dev/ textures (Thanks arenaceous!)
+- Added missing slime textures (Thanks arenaceous!)
+- Added particles hard edges fixes! (Thanks arenaceous!)
+- Updated sf_sphinx (Thanks arenaceous!)
+  o Same changelog as RC4, it was missing from the build
+- Updated sf_tactical (Thanks arenaceous!)
+  o Changed block spawners
+  o Reworked capture points
+  o Player Spawns now include minimap
+- Updated sf_overloaded (Thanks arenaceous!)
+  o Changed block spawners
+  o Raised flag slightly
+  o Texture alignment fixes
+- Updated sf_abandon (Thanks arenaceous!)
+  o Made the ceiling taller
+  o Replaced missing texture
+
+----------------------------
+Release Candidate 4 Changes
+----------------------------
+- Many internal changes, allowing libcurl to work properly on Windows, macOS and Linux (Including RedHat-based distros!)
+- New ConVar `sv_curl_redhat_linux_compatible`.
+  o Defaults to 1
+  o [Server Side Only] Use local `cacert.pem` file.
+    This is required by RedHat-based Linux distros (CentOS, Amazon, etc.) - You should disable this if you're not using those distros.
+    Enable this if you're getting CURLE_SSL_CACERT_BADFILE curl errors on logs.
+    This variable has no effect on Windows.
+- Added cacert.pem file (downloaded from https://curl.haxx.se/ca/cacert.pem)
+  o By default, the game use this as CA certificates file. You're encouraged to update it whenever you like.
+  o To use system CA certificates, change `sv_curl_redhat_linux_compatible` to 0
+- When logging in enabled, SourceForts Banlist will be more verbose about what it's doing, to allow easier identification of issues.
+- Moved gamestartup*.mp3 from VPK to `sound\ui` due to popular request.
+- Updated `gameinfo.txt` with `sv_pure` fixes (Thanks Melectrome!)
+- Removed unused `trusted_keys.txt` and added its info to `trusted_keys_base.txt` for `sv_pure` support (Thanks Melectrome!)
+- Added missing `steam.inf`, fixing some connection issues, hours display and game display (Thanks Melectrome!)
+- sf_sphinx changes (Thanks arenaceous!)
+  o Flag drop trigger only triggering one team
+  o Sand inside the map raised slightly inside the map to allow strafing on all colored angled surfaces
+  o Sphinx paws modified slightly to allow more strafing as scroll jumping is more or less dead.
+  o Adjusted clipping on metal "pipes"
+  o Red and Blue sides of the sand are now the same
+  o Allowed walking on some internal surfaces of the map that were clipped before
+  o Adjusted 3d skybox
+  o Internally, map is now a lot taller, however no freeze is in the same location
+- sf_tread changes (Thanks arenaceous!)
+  o Changed sf_treadtrail scroll rate slightly so it matches with the sand scroll rate.
+  o Minor changes over the map
+- sf_overloaded changes (Thanks arenaceous!)
+  o Fixed a few lightning issues
+  o Fixed texture alignment issues
+  o Lowered the health and suit chargers slightly
+  o Raised the flag so you can sprint up the flag ramp and grab the flag
+  o Changed the skybox models to be non solid to prevent console spam
+- Added a scoreboard fix for icons (Thanks arenaceous!)
+
+----------------------------
+Release Candidate 3 Changes
+----------------------------
+- Reworked Freeze Status feature (almost) from scratch
+- Added `sf_freezestatus_extended`. When enabled, it shows both the Name and the SteamID64 of the player
+- Updated sf_basin, sf_deck and sf_canyon (Thanks arenaceous!)
+- Added magma and tread materials/models (Thanks arenaceous!)
+- Improved sv_pure support (Thanks Melectrome!)
+- Fixed console spam when damaging blocks
+- Attempted a simple fix to stop the m_flSuitPower issue
+
+----------------------------
+Release Candidate 2 Changes
+----------------------------
+- Added sv_lan, sf_team_blocklimit and mp_flashlight to the listen server creation menu (Thanks Melectrome!)
+- Fixed the sound spam bug when trying to use a health or armor dispenser from the enemy team or during build phase
+- Added the ability to freeze prop_physics, due to community request
+- Fixed the undefined class bug, but forcing the player into the scout class
+- Made the weapons selection menu render the weapons in the current team color
+- Updated gameinfo.txt, so the user can customize assets using the ./custom/ folder
+- Added customization instructions to the custom/ directory
+- Fixed the behavior of the flah when it's dropped of the edge / touched a func_disposer
+- Updated sf_basin and added sf_depth (thanks arenaceous!)
+- Updated lights.rad
+- Added a workaround for the console spam "Playing sequence X but there's only Y in total?", caused by a HL2DM bug
+- Increased MOTD max size to 4096 bytes
+- Updated motd.txt file
+- Only Blue and Red teams can spawn blocks now, preventing an exploit that allowed players without an assigned team to spawn blocks
+
+----------------------------
+Release Candidate 1 Changes
+----------------------------
+- Formely known as "SourceForts 1.9.6 Beta 20"
+- Renamed mod to "SourceForts Classic", as it was the consensus
+- Renamed mod folder to "sfclassic"
+- Many more materials updates by arenaceous
+- Fixed a bug where players wouldn't be able to spawn if they joined the spectator team
+- Added the old "bug" to heal the players as a feature, as requested by the community. Enjoy!
+- Added flag icon to the scoreboard
+- Disabled unused HudScore
+- Fixed a bunch of warnings regarding run/sprint/sprint_drain cvars
+- Added a fix to the ambient generic sounds ( https://developer.valvesoftware.com/wiki/Ambient_generic:_stop_and_toggle_fix )
+- Applied the aspect ratio fix for detail sprites ( https://developer.valvesoftware.com/wiki/Detail_props/Aspect_ratio_fix )
+- Reverted SLAM attaching behavior (SLAMs can still be killed by enemy players)
+- Added VPK support to the game
+- Added pure_server_whitelist.txt
+- Added trusted_keys.txt with SourceForts Classic public key
+- Added pack-vpk.py utility, to generate a list of materials, models and sounds to be packed, and pack them
+- Added a small fix to vgui_video.cpp (the game doesn't use GAMEUI)
+- Added sf_deck (Thanks arenaceous!)
+- Updated German translation (Thanks Tobel!)
+- Updated French translation (Thanks Sunseille!)
+
+----------------------------
+1.9.6 Beta 19 Changes
+----------------------------
+- Cosmetic fixes for the freezestatus feature
+- Map updates by arenaceous
+  o sf_abandon
+  o sf_astrodome
+  o sf_conduit
+  o sf_overload
+  o sf_skywalk
+  o sf_valley
+
+----------------------------
+1.9.6 Beta 18 Changes
+----------------------------
+- Updated banlist code
+- Fixed a crash when using console command `showbanlist`
+- Added "freezestatus" feature:
+  o When looking at a block of your own team with the build gun, you see who last frozen and unfrozen a block
+- Added Polish translation (Thanks Melectrome!)
+- Added extra font entry to `ClientScheme.res`, used in Freeze Status
+- Fixed sf_charger_health_increment behavior on item_healthcharger
+- Re-added a hack to refresh block counters when someone joins a team
+- Fixed Damage Indicator on the HUD
+- Added a few extra fixes to the linux build
+
+----------------------------
+1.9.6 Beta 17 Changes
+----------------------------
+- Fixed macOS build
+- sv_cheats 1 is now required for impulse 51 and 52
+- Fixed a possible memory leak on the grenades
+- Changed banlist code from SteamID/SteamID3 to SteamID64
+- Fixed func_disposer_selective in FGD
+- Fixes to nature materials
+- Added map updates by arenaceous, created from scratch
+  o sf_abandon.bsp
+  o sf_astrodome.bsp
+  o sf_crete.bsp
+  o sf_overload.bsp
+  o sf_skywalk.bsp
+  o sf_sphinx.bsp
+- Added old and new maps by arenaceous
+  o sf_conduit.bsp
+  o sf_grassy.bsp
+  o sf_valley.bsp
+  o sf_sandbox.bsp
+- Added sf_valley, sf_conduit, sf_grassy to mapcycle.txt
+
+----------------------------
+1.9.6 Beta 16 Changes
+----------------------------
+- Fixed overload materials (Thank you, arenaceous!)
+- Cherry-picked a few PRs from ValveSoftware/source-sdk-2013
+  o Fix incompatibility with more recent conforming iconv implementations
+  o No longer use ">" to check for pointer validity
+  o Improve shell scripts
+  o Move cursor to the actual center of the chat box
+  o Fix Linux soundscapes
+
+----------------------------
+1.9.6 Beta 15 Changes
+----------------------------
+- Fixed Multiplayer Options tab
+- Fixed listen server settings page
+- Fixed a couple client crashes at the end of a match
+- Added Pulsar theme from SourceForts 1.9.2 as alternate game startup music, as requested
+- Fixed Engineer class name being displayed as Builder
+- Updated CHL2_Player::StopSprinting() for consistency
+
+----------------------------
+1.9.6 Beta 14 Changes
+----------------------------
+- SLAMs now attaches to physics objects correctly. If the object moves, the SLAM explodes (tonysergi/source-sdk-2013@c6576b4)
+- SLAMs now can be killed by enemies (tonysergi/source-sdk-2013@11b5044)
+- Now func_nofreeze and func_flagzone take in consideration all the possible blocks placed by mappers
+- Enabled freezing of func_physbox by default, as requested on the bugtracker
+- Renamed all materials and models, so they have lower case names. This fixes many issues on linux
+- Replaced the HL2MP logo with the SourceForts logo on the MOTD screen
+
+----------------------------
+1.9.6 Beta 13 Changes
+----------------------------
+- Fixed sprint energy depletion on death
+- Re-enabled sv_stickysprint
+- Fixed the issue of the sprint speed after death (m_iClass wasn't being properly replicated)
+- Re-enabled "Suit Equipping" - necessary to fix the sprint issue without hacks (why was it disabled, anyway?)
+- Added base class Item and items item_battery, item_healthkit, item_healthvial (Thank you, arenaceous!)
+
+----------------------------
+1.9.6 Beta 12 Changes
+----------------------------
+- Many internal changes to the code. Old bugs might pop up, current bugs might vanish. Keep eyes open!
+- SLAMs are now removed when the player switches teams and classes
+- Fixed oddities with walk, run and sprint speed
+- Added arenaceous updates to the materials directory
+
+----------------------------
+1.9.6 Beta 11 Changes
+----------------------------
+A BIG "Thank you!" to arenaceous! Most of the cosmetic changes in this update was his awesome work! :D
+
+- Fixed Death Messages HUD indicator
+- Added new `sourceforts-extra-glyphs.ttf` font with skull death and block death glyphs - Warning: Programmer's Art included! :P
+- Scoreboard sorting function priority order: score > frags > deaths > join order (for deterministic sorting)
+- Added spectators to the scoreboard
+- Team score on scoreboard is now displayed after the team name
+- Added team coloring to the team header
+- Massive update to SourceForts FGD, updated with SourceSDK 2013 features and small QOL improvements
+- Added missing detail.vbsp and lights.rad
+- Added a bunch of texture fixes and improvements by arenaceous. List below:
+  o materials/banner/
+    v sf_flag_banner_red
+    v sf_flag_banner_blue
+  o materials/sf/decals/
+    v decal_mark_grey_01
+    v decal_sflogo_blue_01
+    v decal_sflogo_grey_01
+    v decal_sflogo_red_01
+  o materials/sf/sf_crete/
+    v sf_crete_checker_blue
+    v sf_crete_checker_gray
+    v sf_crete_checker_red
+  o materials/vgui/endgame/
+    v sf_logo
+  o materials/vgui/sf/
+    v BetaLogo.vtf
+    v BetaLogoB.vtf
+    v BetaLogoR.vtf
+  o materials/vgui/logos/
+    v spray_flagd
+    v spray_gravtool
+    v spray_greaterthan
+    v spray_nadespam
+    v spray_newb
+    v spray_rktwhor
+  o materials/vgui/logos/ui/
+    v spray_canned
+    v spray_combine
+    v spray_cop
+    v spray_dog
+    v spray_flagd
+    v spray_freeman
+    v spray_gravtool
+    v spray_greaterthan
+    v spray_head
+    v spray_lambda
+    v spray_nadespam
+    v spray_newb
+    v spray_plumbed
+    v spray_rktwhor
+    v spray_soldier
+  o materials/crate/
+    v crate_tex_final_blue
+    v crate_tex_final_grey
+    v crate_tex_final_none
+    v crate_tex_final_normal
+    v crate_tex_final_red
+    v crate_tex_final_internal
+  o resource/
+    v sourceforts.ico
+    v sourceforts.tga
+    v sourceforts_big.tga
+
+----------------------------
+1.9.6 Beta 10 Changes
+----------------------------
+- Added `variables.txt` file to the root of the mod folder with all the custom variables and commands info.
+- Massive Convar and ConCommand cleanup
+- Merged `sf_soldier_combineball_enabled` into `sf_soldier_combineball`
+- Massive code cleanup
+- Added 357 weapon back in. Players should only have access to it through cheats
+- Added descriptions to tons of Console Variables and Commands
+- Fixed "Battery" user message errors
+- Added a few fixes to AR2 alt fire from SourceSDK code
+- Rewritten Scoreboard from scratch
+  o It borrows ListPanel from Zombie Master: Reborn code. Go check it out, it's an awesome mod!
+  o Spectate section is missing
+
+----------------------------
+1.9.6 Beta 9 Changes
+----------------------------
+- Linux binaries!
+
+----------------------------
+1.9.6 Beta 8 Changes
+----------------------------
+- `map_restart` command crash fixed
+- Added the cut feature Smoke Grenades from Sourceforts 1.9.4.1 to Scout's SMG1
+  o Fixed Scout's SMG1 secondary fire.
+  o Added `sf_scout_smoke_grenade` server variable to configure the amount of smoke grenade the scout class spawns. Defaults to 0.
+  o By default, players spawn with no grenades. This is a feature easy to abuse and it was added mostly for fun.
+  o The smoke grenade behaves differently from Sourceforts 1.9.4.1 mostly due to changes in Source SDK itself. This might never be fixed.
+  o It's easy to abuse this feature (with suicides/respawns). Don't turn it on, on public servers.
+  o I'm still considering adding a limit timer to it, but might be more trouble than it's worth.
+- Added ar2 alt fire (combine ball) back in
+  o This should be considered a Fun feature! It shouldn't ever be enabled on public servers or competitive play!
+  o Added `sf_soldier_combineball_enabled` console variable to control if the player can actually shoot combine balls. Default: 0
+  o Added `sf_soldier_combineball` console variable to control the amount of ammo the player will spawn. (Will not work if `sf_soldier_combineball_enabled` is set to 0!). Default: 0
+  o This "double lock" variable system might be silly, but it's easier to prevent an exploit that way.
+
+----------------------------
+1.9.6 Beta 7 Changes
+----------------------------
+- Fixed the invincibility bug
+- Attempt to replace the changeteam command code with HL2DM one (with some minor modifications). Needs testing!
+
+----------------------------
+1.9.6 Beta 6 Changes
+----------------------------
+- Sprint energy draining and replenishment should be equal to SourceForts 1.9.4.1
+  o Sprint energy is drained a little bit when you release the sprint button. This is a fix from HL2DM that was kept
+  o There is no delay to start recharging the sprint energy
+  o Energy is only consumed by sprinting
+- Flashlight should work without interferring with sprint or consume energy (use mp_flashlight to enable it, disabled by default)
+- Water breathing should work without spending energy
+
+----------------------------
+1.9.6 Beta 5 Changes
+----------------------------
+- Sprint energy draining should be fixed now
+  o With the sprint changes, flashlight and breathing under water might be broken
+
+----------------------------
+1.9.6 Beta 4 Changes
+----------------------------
+- "jointeam" command should behave exactly like "changeteam" command now
+- Changed how sprint works, to allow proper prediction (Warning: Stamina draining should be wrong, to be fixed in next build)
+
+----------------------------
+1.9.6 Beta 3 Changes
+----------------------------
+- Reverted damage changes in build phase
+- New experimental repositioning when changing teams on build phase
+
+----------------------------
+1.9.6 Beta 2 Changes
+----------------------------
+- Removed (experimental) Tony Sergi mp animation fixes, as they caused blocks to be placed incorrectly and had wrong shotgun animations
+- Attempted to solve change team issues on build phase, allowing damage (thus, allowing suicide)
+- Fixed sf_charger_health behavior, now you get healed with the specified amount
+- Fixed team changing crashes in combat phase
+
+----------------------------
+1.9.6 Beta 1 Changes
+----------------------------
+- Upgraded to Source SDK 2013!
+- Fixed a bug where attempting to join a team after connecting to a server too fast wouldn't allow the team change
+- Fixed an issue with the old (and broken) sf_banlist
+- Fixed a network error with health wall charger

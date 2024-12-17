@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Titillium+Web">
+  <style type="text/css">
+    <!--
+      a { color: #8066FD; }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Titillium Web";
+        color: #333333;
+        background-color: #B7D3FF;
+      }
+
+      .MOTD-Title {
+        padding-left: 0.2em;
+      }
+
+      .MOTD-Header, .MOTD-Notes {
+        font-family: Lato;
+      }
+
+      .MOTD-Header {
+        background-color: #FFD0B0;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0px;
+        height: 75px;
+        z-index: 1;
+        padding-left: 0.5em;
+      }
+
+      .MOTD-Header h2 {
+        padding-top: 5px;
+        margin-bottom: 0.2em;
+      }
+
+      .MOTD-Header h3 {
+        font-size: 0.8em;
+        margin-top: 0.1em;
+        padding-bottom: 5px;
+      }
+
+      .MOTD-Notes {
+        padding-left: 1em;
+      }
+
+      .MOTD-List ul {
+        list-style: none;
+        vertical-align: top;
+        padding-left: 1.75em;
+      }
+
+      .MOTD-List li {
+        margin: 0.25rem;
+      }
+
+      .MOTD-List li::before {
+        content: ' ';
+        background: #E05656;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 25%;
+        display: inline-block;
+        line-height: 0.9rem;
+        color: white;
+        text-align: center;
+        margin-right: 0.5rem;
+      }
+
+      .MOTD-List ul ul li::before {
+        background: #7A7AEF;
+      }
+    -->
+  </style>
+</head>
+<body>
+  <h1 class="MOTD-Title">SourceForts Classic - Release Candidate</h1>
+  <div class="Build-Details">
+    <div class="MOTD-Header">
+      <h2>Please note this is a pre-release version!</h2>
+      <h3>Visit <a href="https://www.sourceforts.net" target="_blank">https://www.sourceforts.net</a> for the latest info!</h3>
+    </div>
+    <p class="MOTD-Notes">Game Basics:</p>
+    <div class="MOTD-List">
+      <ul>
+        <li>Class / Team Select Menu: "M" / "N"</li>
+        <br>
+        <li>How to spawn a block:</li>
+        <ul>
+          <li>It changes depending on the map.</li>
+          <li>Search for a block spawning area during the <strong>Build Phase</strong> and press "E" while targetting on a button to spawn the corresponding block.</li>
+        </ul>
+        <br>
+        <li>How to freeze a block:</li>
+        <ul>
+          <li>Grab a block with the build gun, position it as you please and press "R" / Reload</li>
+          <li>If it is during the <strong>Combat Phrase</strong>, you will need to hold it until it's <u>frozen</u> in place.</li>
+        </ul>
+        <br>
+        <li>How to unfreeze a block:</li>
+        <ul>
+          <li>Target a <u>frozen</u> block with the build gun, press "R" / Reload</li>
+          <li>If it is during the <strong>Combat Phrase</strong>, you will need to hold it until it's <u>unfrozen</u>.</li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
